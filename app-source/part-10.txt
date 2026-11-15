@@ -32,6 +32,34 @@
       sidebarFilter: ''
     };
 
+    function sanitizeDatabaseData() {
+      const priceFields = new Set(['preço', 'preco', 'valor']);
+      Object.entries(state.db || {}).forEach(([tabName, rows]) => {
+        if (!Array.isArray(rows)) return;
+        state.db[tabName] = rows.filter((row) => {
+          if (!row || typeof row !== 'object') return false;
+          const contentKeys = Object.keys(row).filter((key) => key !== 'Linha da planilha');
+          const onlyPlaceholder = contentKeys.length === 1 &&
+            contentKeys[0] === 'Registro' &&
+            ['-', 'comprar', '- comprar'].includes(String(row.Registro || '').trim().toLowerCase());
+          const hasUsefulContent = contentKeys.some((key) =>
+            !priceFields.has(String(key).trim().toLowerCase()) &&
+            row[key] !== null && row[key] !== undefined &&
+            String(row[key]).trim() !== '' &&
+            !(key === 'Registro' && ['-', 'comprar', '- comprar'].includes(String(row[key]).trim().toLowerCase()))
+          );
+          if (tabName === 'Milenium' && onlyPlaceholder) return false;
+          return hasUsefulContent;
+        }).map((row) => {
+          const cleaned = { ...row };
+          Object.keys(cleaned).forEach((key) => {
+            if (priceFields.has(String(key).trim().toLowerCase())) delete cleaned[key];
+          });
+          return cleaned;
+        });
+      });
+    }
+
     function loadStateFromStorage() {
       try {
         const savedDb = localStorage.getItem(STORAGE_KEY_DB);
@@ -60,10 +88,12 @@
         console.error('Erro ao carregar localStorage:', err);
         state.db = structuredClone(DEFAULT_DATABASE);
       }
+      sanitizeDatabaseData();
     }
 
     function saveDatabaseToStorage() {
       try {
+        sanitizeDatabaseData();
         localStorage.setItem(STORAGE_KEY_DB, JSON.stringify(state.db));
         localStorage.setItem(STORAGE_KEY_SOURCE, state.sourceName);
       } catch (err) {
