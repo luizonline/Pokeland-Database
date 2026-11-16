@@ -748,7 +748,57 @@ pDiGCODRNMTzEHd7ZloQvaifzxw7kYtZddA3neYH7hUUv5bkJKqP9N87SzcwIy6a9A6oR45QldL0DVfG
         return;
       }
 
-      if (state.activeTab === 'Trajes') {
+      if (state.activeTab === 'Estrelas do Milênio') {
+        const stars = items.filter(item => item.data && item.data.Nome);
+        container.innerHTML = `
+          <div class="space-y-4">
+            <div class="rounded-2xl border border-amber-400/25 bg-amber-500/5 p-4">
+              <div class="flex items-center gap-2 text-amber-200 font-extrabold text-sm">
+                <span class="text-xl">✦</span> Guia das Estrelas do Milênio
+              </div>
+              <p class="mt-1 text-xs text-slate-300">Cada estrela exige dois Pokémon. Confira as duas imagens de referência e o efeito correspondente antes de escolher.</p>
+            </div>
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-3">
+              ${stars.map((item, index) => {
+                const d = item.data;
+                const image1 = String(d['Imagem do Pokémon 1'] || '');
+                const image2 = String(d['Imagem do Pokémon 2'] || '');
+                const validImage = value => value.startsWith('data:image/');
+                const fav = isFavorite(item.tabName, item.rowIndex);
+                const pokemonImage = (src, label) => validImage(src)
+                  ? `<img src="${escapeHtml(src)}" alt="${label}" loading="lazy" class="w-[76px] h-[76px] sm:w-[88px] sm:h-[88px] object-contain rounded-xl border border-amber-400/40 bg-slate-950 p-1 shadow-lg">`
+                  : `<div class="w-[76px] h-[76px] sm:w-[88px] sm:h-[88px] rounded-xl border border-poke-border bg-slate-950 flex items-center justify-center text-[10px] text-slate-500">Imagem indisponível</div>`;
+                return `
+                  <article class="rounded-2xl border border-poke-border bg-poke-panel p-4 shadow-lg hover:border-amber-400/40 transition cursor-pointer" onclick="openDetailModal('${escapeHtml(item.tabName)}',${item.rowIndex})">
+                    <div class="flex items-start justify-between gap-3">
+                      <div class="min-w-0">
+                        <div class="text-[10px] uppercase tracking-widest font-bold text-amber-300">ESTRELA ${String(index + 1).padStart(2, '0')}</div>
+                        <h3 class="mt-1 text-sm sm:text-base font-extrabold text-white">${escapeHtml(d.Nome)}</h3>
+                        <span class="inline-flex mt-2 rounded-full border border-sky-400/30 bg-sky-500/10 px-2.5 py-1 text-[10px] font-bold text-sky-200">REQUER 2 POKÉMON</span>
+                      </div>
+                      <button type="button" onclick="toggleFavorite('${escapeHtml(item.tabName)}',${item.rowIndex},event)" class="shrink-0 rounded-lg border px-2.5 py-1.5 text-base ${fav ? 'border-amber-400/50 text-amber-300 bg-amber-500/10' : 'border-slate-600 text-slate-400'}" title="${fav ? 'Remover dos favoritos' : 'Favoritar'}">${fav ? '★' : '☆'}</button>
+                    </div>
+                    <div class="my-4 rounded-xl border border-poke-border/80 bg-slate-950/40 p-3">
+                      <div class="mb-3 text-center text-[10px] font-extrabold uppercase tracking-wider text-slate-400">Pokémon necessários</div>
+                      <div class="flex items-center justify-center gap-3 sm:gap-5">
+                        <div class="flex flex-col items-center gap-1">${pokemonImage(image1, 'Primeiro Pokémon necessário')}<span class="text-[10px] text-slate-400">Pokémon 1</span></div>
+                        <span class="text-2xl font-black text-amber-300">+</span>
+                        <div class="flex flex-col items-center gap-1">${pokemonImage(image2, 'Segundo Pokémon necessário')}<span class="text-[10px] text-slate-400">Pokémon 2</span></div>
+                      </div>
+                    </div>
+                    <div class="rounded-xl border border-sky-400/15 bg-sky-500/5 p-3">
+                      <div class="mb-1 text-[10px] font-extrabold uppercase tracking-wider text-sky-300">Efeito da estrela</div>
+                      <p class="text-xs leading-relaxed text-slate-100">${escapeHtml(d.Efeito || 'Efeito não informado.')}</p>
+                    </div>
+                    ${d.Observações ? `<p class="mt-2 text-[11px] leading-relaxed text-slate-400">${escapeHtml(d.Observações)}</p>` : ''}
+                    ${d['Status da tradução'] ? `<div class="mt-3 text-[10px] font-semibold text-emerald-300">${escapeHtml(d['Status da tradução'])}</div>` : ''}
+                  </article>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        `;
+      } else if (state.activeTab === 'Trajes') {
         container.innerHTML = renderTrajesListHtml(items);
       } else {
         container.innerHTML = state.viewMode === 'cards'
