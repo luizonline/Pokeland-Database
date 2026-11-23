@@ -89,6 +89,13 @@ main{max-width:1240px;margin:0 auto;padding:26px 20px 60px}.toolbar{display:grid
 .detail-note{font-size:11px;line-height:1.5;color:var(--muted);margin:10px 2px 0}
 body.modal-lock{overflow:hidden}
 @media(max-width:560px){.team-modal{padding:10px}.team-dialog{border-radius:20px;max-height:92vh}.team-dialog-art{min-height:122px;gap:7px;padding:22px 48px 16px}.team-dialog-art img{width:68px;height:68px}.team-dialog-content{padding:16px}.team-dialog-content h2{font-size:20px}}
+
+/* Unified palette: keep legacy ranking components in sync with the site theme */
+:root{--text:var(--ink);--card:var(--surface);--card2:var(--soft);--accent:var(--blue);--gold:#d58a08}
+:root[data-theme="dark"]{--text:#edf4ff;--ink:#edf4ff;--muted:#a9bad0;--card:#17263b;--card2:#1c3049;--surface:#131f31;--bg:#0c1422;--line:#30445f;--accent:#75c4ff;--blue:#75c4ff;--blue-soft:#183b59;--gold:#ffd071;color-scheme:dark}
+:root[data-theme="light"]{--text:#17263c;--ink:#17263c;--muted:#586b83;--card:#fff;--card2:#eef4fa;--surface:#fff;--bg:#f5f8fc;--line:#dfe7f0;--accent:#0878d1;--blue:#0878d1;--blue-soft:#e7f3ff;--gold:#bd790c;color-scheme:light}
+body{color:var(--text)!important;background:var(--bg)!important}
+.team h2,.source-card-content h2,.dps b{color:var(--text)!important}
 </style></head>
 <body>
 <header class="sitebar">
