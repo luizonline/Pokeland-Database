@@ -50,9 +50,9 @@ body{color:var(--text)!important;background:var(--bg)!important}
 :root[data-theme="dark"] .dropdown a,:root[data-theme="dark"] .navtrigger,:root[data-theme="dark"] .sectionbar a{color:#dce9f8!important}
 :root[data-theme="dark"] .githubbtn,:root[data-theme="dark"] .iconbtn,:root[data-theme="dark"] .secondary{background:#17263b!important;color:#edf4ff!important;border-color:#30445f!important}
 :root[data-theme="light"] body{background:#f5f8fc!important;color:#17263c!important}
-</style>
+.sitebar{z-index:9999!important}.baractions{z-index:10000!important;pointer-events:auto!important}#themeBtn{position:relative!important;z-index:10001!important;pointer-events:auto!important;touch-action:manipulation!important;cursor:pointer!important}:root[data-theme="dark"] body{background:#0b1422!important;color:#edf4ff!important}:root[data-theme="dark"] .sitebar,:root[data-theme="dark"] .sectionbar,:root[data-theme="dark"] .quickrail,:root[data-theme="dark"] .stat,:root[data-theme="dark"] .card,:root[data-theme="dark"] .team,:root[data-theme="dark"] .team-dialog,:root[data-theme="dark"] .source-card-content{background:#131f31!important;color:#edf4ff!important;border-color:#30445f!important}:root[data-theme="dark"] .source-card-content h2,:root[data-theme="dark"] .team h2,:root[data-theme="dark"] h1,:root[data-theme="dark"] h2{color:#f2f6ff!important}:root[data-theme="dark"] .source-dps,:root[data-theme="dark"] .source-dps b,:root[data-theme="dark"] .cost-item,:root[data-theme="dark"] p{color:#b8c7da!important}:root[data-theme="dark"] input,:root[data-theme="dark"] select{background:#17263b!important;color:#edf4ff!important;border-color:#30445f!important}</style>
 </head>
-<body>
+<body><script>try{var savedTheme=localStorage.getItem('pokeguide-theme');if(savedTheme){document.documentElement.setAttribute('data-theme',savedTheme);document.documentElement.style.colorScheme=savedTheme;}}catch(e){}</script>
 <header class="sitebar">
  <a class="brand" href="index.html"><span class="brandmark">✦</span><span>PokéGuide <em>Wiki</em></span></a>
  <nav class="mainnav" aria-label="Navegação principal">
@@ -63,7 +63,7 @@ body{color:var(--text)!important;background:var(--bg)!important}
   <div class="navgroup"><button class="navtrigger" aria-expanded="false">Recursos <span>⌄</span></button><div class="dropdown"><div class="drophead">RECURSOS</div><a href="index.html#guias">Guias e tutoriais</a><a href="index.html#tabelas">Tabelas e materiais</a><a href="index.html#biblioteca">Biblioteca</a></div></div>
   <div class="navgroup"><button class="navtrigger" aria-expanded="false">Serviços <span>⌄</span></button><div class="dropdown"><div class="drophead">SERVIÇOS</div><a href="index.html#calculadoras">Calculadoras</a><a href="index.html#utilitarios">Utilitários</a></div></div>
  </nav>
- <div class="baractions"><button class="iconbtn" id="themeBtn" type="button" aria-label="Alternar tema" title="Alternar tema" onclick="return window.togglePokeguideTheme(event)">☾</button><a class="githubbtn" href="https://github.com/luizonline/Pokeland-Database" target="_blank" rel="noopener">GitHub ↗</a></div>
+ <div class="baractions"><button class="iconbtn" id="themeBtn" type="button" aria-label="Alternar tema" title="Alternar tema" onclick="var r=document.documentElement;var n=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',n);r.style.colorScheme=n;this.textContent=n==='dark'?'☀':'☾';this.setAttribute('aria-pressed',n==='dark'?'true':'false');try{localStorage.setItem('pokeguide-theme',n)}catch(e){}">☾</button><a class="githubbtn" href="https://github.com/luizonline/Pokeland-Database" target="_blank" rel="noopener">GitHub ↗</a></div>
 </header>
 <div class="sectionbar"><a href="index.html">Início</a><span>›</span><a href="times.html">Pokémon</a><span>›</span><strong>Conteúdo da Wiki</strong><div class="sectionlinks"><a href="index.html#pokedex">Pokédex</a><a href="index.html#capsula">Cápsula 2026</a><a href="times.html">Times</a><a href="index.html#tipos">Tipos e habilidades</a></div></div>
 <main class="hybrid-main"><aside class="quickrail"><div class="rail-title">ACESSO RÁPIDO</div><a href="#pokemon">✦ Pokémon</a><a href="times.html">⚔ Ranking de Times</a><a href="#evolucao">↗ Evolução</a><a href="#eventos">▦ Eventos</a><a href="#playground">⚗ Playground</a><a href="#recursos">▤ Recursos</a></aside><div class="maincontent">
@@ -94,37 +94,5 @@ body{color:var(--text)!important;background:var(--bg)!important}
 </div></main>
 <footer>PokéGuide Wiki · Projeto independente de consulta para Pocket Contest. Conteúdo em desenvolvimento e sujeito a atualização.</footer>
 
-<script>
-(function(){
-  var key='pokeguide-theme';
-  function current(){return document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light';}
-  function apply(theme){
-    theme=theme==='dark'?'dark':'light';
-    document.documentElement.setAttribute('data-theme',theme);
-    document.documentElement.style.colorScheme=theme;
-    try{localStorage.setItem(key,theme);}catch(e){}
-    var button=document.getElementById('themeBtn');
-    if(button){
-      button.textContent=theme==='dark'?'☀':'☾';
-      button.setAttribute('aria-label',theme==='dark'?'Ativar tema claro':'Ativar tema escuro');
-      button.setAttribute('aria-pressed',theme==='dark'?'true':'false');
-      button.title=theme==='dark'?'Ativar tema claro':'Ativar tema escuro';
-    }
-  }
-  window.togglePokeguideTheme=function(event){
-    if(event){event.preventDefault();event.stopPropagation();}
-    apply(current()==='dark'?'light':'dark');
-    return false;
-  };
-  var initial='light';
-  try{initial=localStorage.getItem(key)||'light';}catch(e){}
-  apply(initial);
-  document.addEventListener('DOMContentLoaded',function(){
-    var button=document.getElementById('themeBtn');
-    if(button)button.addEventListener('click',window.togglePokeguideTheme);
-  });
-  var button=document.getElementById('themeBtn');
-  if(button)button.addEventListener('click',window.togglePokeguideTheme);
-})();
-</script></body>
+</body>
 </html>
