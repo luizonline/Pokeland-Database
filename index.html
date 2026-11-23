@@ -56,7 +56,7 @@ body{color:var(--text)!important;background:var(--bg)!important}
 <header class="sitebar">
  <a class="brand" href="index.html"><span class="brandmark">✦</span><span>PokéGuide <em>Wiki</em></span></a>
  <nav class="mainnav" aria-label="Navegação principal">
-  <div class="navgroup"><button class="navtrigger active" aria-expanded="false">Pokémon <span>⌄</span></button><div class="dropdown"><div class="drophead">POKÉMON</div><a href="index.html#pokemon">Visão geral</a><a href="index.html#pokedex">Pokédex</a><a href="times.html">Ranking de Times</a><a href="index.html#tipos">Tipos e habilidades</a></div></div>
+  <div class="navgroup"><button class="navtrigger active" aria-expanded="false">Pokémon <span>⌄</span></button><div class="dropdown"><div class="drophead">POKÉMON</div><a href="index.html#pokemon">Visão geral</a><a href="index.html#pokedex">Pokédex</a><a href="times.html">Times</a><a href="index.html#tipos">Tipos e habilidades</a></div></div>
   <div class="navgroup"><button class="navtrigger" aria-expanded="false">Evolução <span>⌄</span></button><div class="dropdown"><div class="drophead">EVOLUÇÃO</div><a href="index.html#custos">Custos e requisitos</a><a href="index.html#melhorias">Melhorias e upgrades</a><a href="index.html#itens">Itens de evolução</a><a href="itens-carregados.html">Itens Carregados</a></div></div>
   <div class="navgroup"><button class="navtrigger" aria-expanded="false">Eventos <span>⌄</span></button><div class="dropdown"><div class="drophead">EVENTOS</div><a href="index.html#calendario">Calendário</a><a href="index.html#clima">Clima e rotações</a><a href="index.html#especiais">Eventos especiais</a></div></div>
   <div class="navgroup"><button class="navtrigger" aria-expanded="false">Playground <span>⌄</span></button><div class="dropdown"><div class="drophead">PLAYGROUND</div><a href="index.html#simuladores">Simuladores</a><a href="index.html#laboratorio">Laboratório</a></div></div>
@@ -66,20 +66,20 @@ body{color:var(--text)!important;background:var(--bg)!important}
  <div class="baractions"><button class="iconbtn" id="themeBtn" type="button" aria-label="Alternar tema" title="Alternar tema" onclick="var r=document.documentElement;var n=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',n);r.style.colorScheme=n;this.textContent=n==='dark'?'☀':'☾';this.setAttribute('aria-pressed',n==='dark'?'true':'false');try{localStorage.setItem('pokeguide-theme',n)}catch(e){}">☾</button><a class="githubbtn" href="https://github.com/luizonline/Pokeland-Database" target="_blank" rel="noopener">GitHub ↗</a></div>
 </header>
 <div class="sectionbar"><a href="index.html">Início</a><span>›</span><a href="times.html">Pokémon</a><span>›</span><strong>Conteúdo da Wiki</strong><div class="sectionlinks"><a href="index.html#pokedex">Pokédex</a><a href="times.html">Times</a><a href="index.html#tipos">Tipos e habilidades</a></div></div>
-<main class="hybrid-main"><aside class="quickrail"><div class="rail-title">ACESSO RÁPIDO</div><a href="#pokemon">✦ Pokémon</a><a href="times.html">⚔ Ranking de Times</a><a href="#evolucao">↗ Evolução</a><a href="#eventos">▦ Eventos</a><a href="#playground">⚗ Playground</a><a href="#recursos">▤ Recursos</a></aside><div class="maincontent">
+<main class="hybrid-main"><aside class="quickrail"><div class="rail-title">ACESSO RÁPIDO</div><a href="#pokemon">✦ Pokémon</a><a href="times.html">⚔ Times</a><a href="#evolucao">↗ Evolução</a><a href="#eventos">▦ Eventos</a><a href="#playground">⚗ Playground</a><a href="#recursos">▤ Recursos</a></aside><div class="maincontent">
 <div class="crumb">Início　›　Wiki Pocket Contest</div>
 <section class="hero">
 <span class="eyebrow">✦ GUIA INDEPENDENTE · POCKET CONTEST</span>
 <h1>Conhecimento do jogo, <span style="color:#0876d8">em um só lugar.</span></h1>
 <p>Consulte Pokémon, composições de times, evolução, eventos e ferramentas. Uma wiki em constante atualização, organizada para facilitar sua jornada.</p>
-<div class="hero-actions"><a class="primary" href="times.html">Ver ranking de times　→</a><a class="secondary" href="#categorias">Explorar categorias</a></div>
+<div class="hero-actions"><a class="primary" href="times.html">Ver times　→</a><a class="secondary" href="#categorias">Explorar categorias</a></div>
 </section>
 <section class="stats" aria-label="Resumo da wiki">
 <div class="stat"><b>06</b><span>Categorias principais</span></div><div class="stat"><b>62</b><span>Times no ranking atual</span></div><div class="stat"><b>Em expansão</b><span>Conteúdo sendo organizado</span></div><div class="stat"><b>PT-BR</b><span>Idioma do portal</span></div>
 </section>
 <div class="section-head" id="categorias"><div><h2>Explore a Wiki</h2><p>Escolha uma área para consultar os conteúdos disponíveis.</p></div></div>
 <section class="cards" id="pokemon">
-<a class="card" href="times.html"><div class="card-top"><span class="ico">⚔</span><span class="status live">Disponível</span></div><h3>Pokémon</h3><p>Pokédex, ranking e composições de times.</p><span class="link">Abrir ranking de times →</span></a>
+<a class="card" href="times.html"><div class="card-top"><span class="ico">⚔</span><span class="status live">Disponível</span></div><h3>Pokémon</h3><p>Pokédex, ranking e composições de times.</p><span class="link">Abrir times →</span></a>
 <a class="card" href="#evolucao"><div class="card-top"><span class="ico">⬆</span><span class="status">Em preparação</span></div><h3>Evolução</h3><p>Custos, requisitos, melhorias, itens e progressão.</p><span class="link">Explorar seção →</span></a>
 <a class="card" href="#eventos"><div class="card-top"><span class="ico">▦</span><span class="status">Em preparação</span></div><h3>Eventos</h3><p>Calendários, clima, rotações e eventos especiais.</p><span class="link">Explorar seção →</span></a>
 <a class="card" href="#playground"><div class="card-top"><span class="ico">⚗</span><span class="status">Planejado</span></div><h3>Playground</h3><p>Simuladores, laboratório e ferramentas interativas.</p><span class="link">Conhecer área →</span></a>
