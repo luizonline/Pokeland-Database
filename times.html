@@ -36,7 +36,7 @@ main{max-width:1240px;margin:0 auto;padding:26px 20px 60px}.toolbar{display:grid
 .pageintro{margin-bottom:20px}.pageintro h1{font-size:clamp(28px,4vw,38px);margin:10px 0 6px;color:var(--ink)}.pageintro p{margin:0;color:var(--muted);max-width:720px}.hybrid-main{display:grid;grid-template-columns:205px minmax(0,1fr);gap:22px;max-width:1280px}.quickrail{align-self:start;position:sticky;top:145px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:13px;display:flex;flex-direction:column;gap:5px}.rail-title{font-size:10px;letter-spacing:.8px;color:var(--muted);font-weight:850;padding:7px 9px}.quickrail a{padding:9px;border-radius:9px;font-size:12px;font-weight:650;color:var(--muted);text-decoration:none}.quickrail a:hover{background:var(--blue-soft);color:var(--blue)}.maincontent{min-width:0}.stat,.team,.note{background:var(--surface);border-color:var(--line);color:var(--muted)}.stat b,.team h2,.dps b,.cost b{color:var(--ink)}.team{box-shadow:var(--shadow)}.member{background:var(--soft);border-color:var(--line)}.cost{background:var(--soft);border-color:var(--line);color:var(--muted)}.filter{background:var(--surface);color:var(--muted)}.filter.active{background:var(--blue);border-color:var(--blue);color:white}.search,.select{background:var(--surface);border-color:var(--line);color:var(--ink)}.note{margin-bottom:20px}@media(max-width:900px){.hybrid-main{grid-template-columns:1fr}.quickrail{position:static;display:grid;grid-template-columns:repeat(3,1fr)}.rail-title{grid-column:1/-1}}@media(max-width:560px){.quickrail{grid-template-columns:repeat(2,1fr)}}
 .team-expanded{padding:0;overflow:hidden}.team-art-strip{min-height:104px;display:flex;align-items:center;justify-content:center;gap:9px;padding:15px 12px;background:linear-gradient(115deg,#f4f7fb,#eaf3fb);border-bottom:1px solid var(--line)}:root[data-theme="dark"] .team-art-strip{background:linear-gradient(115deg,#19283b,#20364e)}.team-art-link{width:58px;height:58px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(145deg,#fff,#e9eef5);border:1px solid #dbe4ef;overflow:hidden}.team-art-link img{width:100%;height:100%;object-fit:contain;display:block}.team-body{padding:14px 16px 15px}.member-names{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:9px}.member-names span{font-size:10px;color:var(--muted);font-weight:700}.member-names i{font-style:normal;color:var(--blue);font-size:11px;font-weight:900}.team-expanded h2{font-size:18px;margin:7px 0 5px}.team-meta{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.members-large{gap:10px;margin:17px 0 14px}.member-link{text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:9px 5px 8px;transition:.18s}.member-link:hover{border-color:var(--blue);transform:translateY(-2px)}.member-link img{width:clamp(76px,8vw,104px);height:clamp(76px,8vw,104px);object-fit:contain;border-radius:10px}.member-link span{font-size:12px;font-weight:750;color:var(--ink);margin-top:3px}.member-link small{font-size:10px;color:var(--blue);margin-top:4px}.eons-tag{background:var(--blue-soft);color:var(--blue);font-size:10px;font-weight:850;padding:4px 8px;border-radius:20px}.cost-expanded{padding:12px;margin-top:12px}.resource-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.resource-chip{display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 9px;color:var(--ink);font-weight:800;font-size:12px}.resource-chip img{width:25px;height:25px;object-fit:contain}.resource-chip small{font-size:10px;font-weight:600;color:var(--muted)}.diamond-chip{color:var(--ink)}.diamond{color:#5c9fe7;font-size:17px}.note{line-height:1.65}.source-link{color:var(--blue);font-weight:750;text-decoration:none}@media(max-width:560px){.team-art-strip{min-height:88px;gap:7px;padding:12px}.team-art-link{width:52px;height:52px}.member-link img{width:72px;height:72px}.members-large{gap:5px}.resource-chip{font-size:11px;padding:5px 7px}.resource-chip small{display:none}}
 /* Ranking cards: compact presentation matching the source layout */
-#teams.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+#teams.grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;min-height:120px}.source-style-card{display:block!important;visibility:visible!important;opacity:1!important}
 .source-style-card{padding:0!important;overflow:hidden;border-radius:16px;background:var(--surface);box-shadow:var(--shadow);min-width:0}
 .source-card-art{height:90px;position:relative;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(110deg,#fffaf2,#eef6ff);border-bottom:1px solid var(--line);padding:12px 42px}
 :root[data-theme="dark"] .source-card-art{background:linear-gradient(110deg,#1b2939,#1a3046)}
@@ -44,7 +44,7 @@ main{max-width:1240px;margin:0 auto;padding:26px 20px 60px}.toolbar{display:grid
 .source-star{left:10px;background:#f6a51c;color:#fff}
 .source-rank{right:10px;background:var(--surface);color:var(--muted);border:1px solid var(--line)}
 .source-portraits{display:flex;align-items:center;justify-content:center;gap:7px;width:100%}
-.source-portraits a{display:block;width:54px;height:54px;border-radius:11px;overflow:hidden;background:#f4f6f8;border:1px solid #e0e6ed;flex:0 0 54px}
+.source-portraits .portrait-item{display:block;width:54px;height:54px;border-radius:11px;overflow:hidden;background:#f4f6f8;border:1px solid #e0e6ed;flex:0 0 54px}
 .source-portraits img{display:block;width:100%!important;height:100%!important;object-fit:contain!important;margin:0!important;image-rendering:auto}
 .source-card-content{padding:12px 14px 14px}
 .source-card-content h2{font-size:15px;line-height:1.3;margin:0 0 4px;color:var(--text)}
@@ -57,7 +57,7 @@ main{max-width:1240px;margin:0 auto;padding:26px 20px 60px}.toolbar{display:grid
 .cost-item.diamonds{color:var(--muted)}
 .diamond-icon{font-size:13px;color:#5ba4e8}
 @media(max-width:900px){#teams.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:560px){#teams.grid{grid-template-columns:1fr}.source-card-art{height:88px}.source-portraits a{width:56px;height:56px;flex-basis:56px}}
+@media(max-width:560px){#teams.grid{grid-template-columns:1fr}.source-card-art{height:88px}.source-portraits .portrait-item{width:56px;height:56px;flex-basis:56px}}
 
 /* Team detail modal */
 .team-open{cursor:pointer;outline:none}.team-open .source-card-art{cursor:default}.team-open .source-card-content{cursor:pointer}.team-open:focus-visible{box-shadow:0 0 0 3px var(--blue)}
@@ -118,21 +118,27 @@ const IMAGE_FOLDER_BY_RANK = [null,"01","02","03","04","05","03","04","05","06",
 
 // As imagens são carregadas diretamente da fonte original da comunidade.
 function render(){
- const q=$('#search').value.trim().toLocaleLowerCase('pt-BR'),dps=$('#dpsFilter').value,sort=$('#sort').value;
- let list=DATA.filter(t=>(!activeStar||t.stars===activeStar)&&(!dps||t.dps===dps)&&(!q||[t.name,t.dps,...t.members].join(' ').toLocaleLowerCase('pt-BR').includes(q)));
- if(sort==='stars')list.sort((a,b)=>b.stars-a.stars||a.rank-b.rank);if(sort==='name')list.sort((a,b)=>a.name.localeCompare(b.name,'pt-BR'));
- $('#total').textContent=list.length;const shown=$('#shownTotal');if(shown)shown.textContent=list.length;
- $('#teams').innerHTML=list.length?list.map(t=>{
-   const folder=IMAGE_FOLDER_BY_RANK[t.rank] || String(t.rank).padStart(2,'0');
-   const costParts=t.cost.split(' · ').map(x=>x.trim());
-   const resources=costParts.map(part=>{
-     if(part.toLocaleLowerCase('pt-BR').startsWith('livro de fogo:'))return '<span class="cost-item"><img src="https://wiki.origemfadas.com.br/teams/moeda/livro-de-fogo.png" alt="">'+esc(part.slice('Livro de Fogo:'.length).trim())+'</span>';
-     if(part.toLocaleLowerCase('pt-BR').startsWith('fragmento universal:'))return '<span class="cost-item"><img src="https://wiki.origemfadas.com.br/teams/moeda/fragmento-universal.png" alt="">'+esc(part.slice('Fragmento Universal:'.length).trim())+'</span>';
+ const search=$('#search'),dpsEl=$('#dpsFilter'),sortEl=$('#sort'),teamsEl=$('#teams');
+ if(!search||!dpsEl||!sortEl||!teamsEl)return;
+ const q=search.value.trim().toLocaleLowerCase('pt-BR'),dps=dpsEl.value,sort=sortEl.value;
+ let list=DATA.filter(t=>(!activeStar||Number(t.stars)===activeStar)&&(!dps||t.dps===dps)&&(!q||[t.name,t.dps,...(Array.isArray(t.members)?t.members:[])].join(' ').toLocaleLowerCase('pt-BR').includes(q)));
+ if(sort==='stars')list.sort((a,b)=>b.stars-a.stars||a.rank-b.rank);
+ if(sort==='name')list.sort((a,b)=>a.name.localeCompare(b.name,'pt-BR'));
+ $('#total').textContent=list.length;
+ const shown=$('#shownTotal');if(shown)shown.textContent=list.length;
+ teamsEl.innerHTML=list.map(t=>{
+   const folder=IMAGE_FOLDER_BY_RANK[Number(t.rank)]||String(t.rank).padStart(2,'0');
+   const members=Array.isArray(t.members)?t.members:[];
+   const parts=String(t.cost||'').split(' · ').map(x=>x.trim()).filter(Boolean);
+   const resources=parts.map(part=>{
+     const low=part.toLocaleLowerCase('pt-BR');
+     if(low.startsWith('livro de fogo:'))return '<span class="cost-item"><img src="https://wiki.origemfadas.com.br/teams/moeda/livro-de-fogo.png" alt="">'+esc(part.slice('Livro de Fogo:'.length).trim())+'</span>';
+     if(low.startsWith('fragmento universal:'))return '<span class="cost-item"><img src="https://wiki.origemfadas.com.br/teams/moeda/fragmento-universal.png" alt="">'+esc(part.slice('Fragmento Universal:'.length).trim())+'</span>';
      return '<span class="cost-item diamonds"><span class="diamond-icon">◆</span>'+esc(part)+'</span>';
    }).join('');
-   return '<article class="team source-style-card team-open" role="button" tabindex="0" data-team-rank="'+t.rank+'" aria-label="Ver detalhes de '+esc(t.name)+'"><div class="source-card-art"><span class="source-star">★'+t.stars+'</span><span class="source-rank">#'+t.rank+'</span><div class="source-portraits">'+t.members.map((m,i)=>'<span title="'+esc(m)+'"><img loading="lazy" decoding="async" src="https://wiki.origemfadas.com.br/teams/'+folder+'/'+(i+1)+'.png" alt="'+esc(m)+'"></span>').join('')+'</div></div><div class="source-card-content"><h2>'+esc(t.name)+'</h2><div class="source-dps">DPS: <b>'+esc(t.dps)+'</b></div>'+(t.name.toLocaleLowerCase('pt-BR').includes('com eons')?'<div class="source-eons">Eons</div>':'')+'<div class="source-costs">'+resources+'</div></div></article>';
- }).join(''):'<div class="empty">Nenhum time encontrado. Tente outro nome, Pokémon ou filtro.</div>';
-
+   const portraits=members.map((m,i)=>'<span class="portrait-item" title="'+esc(m)+'"><img loading="lazy" decoding="async" src="https://wiki.origemfadas.com.br/teams/'+folder+'/'+(i+1)+'.png" alt="'+esc(m)+'"></span>').join('');
+   return '<article class="team source-style-card team-open" role="button" tabindex="0" data-team-rank="'+t.rank+'" aria-label="Ver detalhes de '+esc(t.name)+'"><div class="source-card-art"><span class="source-star">★'+t.stars+'</span><span class="source-rank">#'+t.rank+'</span><div class="source-portraits">'+portraits+'</div></div><div class="source-card-content"><h2>'+esc(t.name)+'</h2><div class="source-dps">DPS: <b>'+esc(t.dps)+'</b></div>'+(t.name.toLocaleLowerCase('pt-BR').includes('com eons')?'<div class="source-eons">✦ Eons</div>':'')+'<div class="source-costs">'+resources+'</div></div></article>';
+ }).join('')||'<div class="empty">Nenhum time encontrado. Tente outro nome, Pokémon ou filtro.</div>';
 }
 function esc(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 const dps=[...new Set(DATA.map(t=>t.dps))].sort((a,b)=>a.localeCompare(b,'pt-BR'));$('#dpsFilter').innerHTML='<option value="">Todos os DPS</option>'+dps.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('');
@@ -186,7 +192,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeTeamModal()});
 });
 
-render();
+try{render()}catch(err){console.error('Erro ao renderizar ranking:',err);document.getElementById('teams').innerHTML='<div class="empty">Não foi possível carregar os times. Atualize a página.</div>'}
 </script><script>
 (function(){const root=document.documentElement;const saved=localStorage.getItem('pokeguide-theme');root.dataset.theme=saved||'light';
 const btn=document.getElementById('themeBtn');function paint(){if(btn){btn.textContent=root.dataset.theme==='dark'?'☀':'☾';btn.setAttribute('aria-label',root.dataset.theme==='dark'?'Ativar tema claro':'Ativar tema escuro')}}
