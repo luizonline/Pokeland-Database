@@ -57,7 +57,7 @@ body{color:var(--text)!important;background:var(--bg)!important}
  <a class="brand" href="index.html"><span class="brandmark">✦</span><span>PokéGuide <em>Wiki</em></span></a>
  <nav class="mainnav" aria-label="Navegação principal">
   <div class="navgroup"><button class="navtrigger active" aria-expanded="false">Pokémon <span>⌄</span></button><div class="dropdown"><div class="drophead">POKÉMON</div><a href="index.html#pokemon">Visão geral</a><a href="index.html#pokedex">Pokédex</a><a href="times.html">Times</a></div></div>
-  <div class="navgroup"><button class="navtrigger" aria-expanded="false">Evolução <span>⌄</span></button><div class="dropdown"><div class="drophead">EVOLUÇÃO</div><a href="index.html#custos">Custos e requisitos</a><a href="index.html#melhorias">Melhorias e upgrades</a><a href="index.html#itens">Itens de evolução</a><a href="itens-carregados.html">Itens Carregados</a></div></div>
+  <div class="navgroup"><button class="navtrigger" aria-expanded="false">Evolução <span>⌄</span></button><div class="dropdown"><div class="drophead">EVOLUÇÃO</div><a href="index.html#custos">Custos e requisitos</a><a href="index.html#melhorias">Melhorias e upgrades</a><a href="index.html#itens">Itens de evolução</a><a href="#itens-carregados">Itens Carregados</a></div></div>
   <div class="navgroup"><button class="navtrigger" aria-expanded="false">Eventos <span>⌄</span></button><div class="dropdown"><div class="drophead">EVENTOS</div><a href="index.html#calendario">Calendário</a><a href="index.html#clima">Clima e rotações</a><a href="index.html#especiais">Eventos especiais</a></div></div>
   <div class="navgroup"><button class="navtrigger" aria-expanded="false">Playground <span>⌄</span></button><div class="dropdown"><div class="drophead">PLAYGROUND</div><a href="index.html#simuladores">Simuladores</a><a href="index.html#laboratorio">Laboratório</a></div></div>
   <div class="navgroup"><button class="navtrigger" aria-expanded="false">Recursos <span>⌄</span></button><div class="dropdown"><div class="drophead">RECURSOS</div><a href="index.html#guias">Guias e tutoriais</a><a href="index.html#tabelas">Tabelas e materiais</a><a href="index.html#biblioteca">Biblioteca</a></div></div>
@@ -87,12 +87,77 @@ body{color:var(--text)!important;background:var(--bg)!important}
 <a class="card" href="#servicos"><div class="card-top"><span class="ico">⚙</span><span class="status">Planejado</span></div><h3>Serviços</h3><p>Calculadoras, utilitários e ferramentas de apoio ao jogador.</p><span class="link">Conhecer área →</span></a>
 </section>
 <div class="section-head" id="evolucao"><div><h2>Evolução</h2><p>Área reservada para guias e tabelas de progressão.</p></div></div>
-<section class="feature"><article class="card"><div class="card-top"><span class="ico">◆</span><span class="status">Em preparação</span></div><h3>Custos e requisitos</h3><p>Vamos reunir materiais de evolução, fragmentos, itens necessários e custos por etapa, sempre indicando a fonte dos dados.</p></article><a class="card" href="itens-carregados.html"><div class="card-top"><span class="ico">✦</span><span class="status live">Disponível</span></div><h3>Itens Carregados</h3><p>Consulte efeitos base, efeitos avançados, tipagens e métodos de síntese.</p><span class="link">Abrir guia de itens →</span></a><article class="card" id="eventos"><div class="card-top"><span class="ico">◷</span><span class="status">Em preparação</span></div><h3>Eventos e calendário</h3><p>Calendário de eventos, clima e rotações com atualização progressiva.</p></article></section>
+<section class="feature"><article class="card"><div class="card-top"><span class="ico">◆</span><span class="status">Em preparação</span></div><h3>Custos e requisitos</h3><p>Vamos reunir materiais de evolução, fragmentos, itens necessários e custos por etapa, sempre indicando a fonte dos dados.</p></article><a class="card" href="#itens-carregados"><div class="card-top"><span class="ico">✦</span><span class="status live">Disponível</span></div><h3>Itens Carregados</h3><p>Consulte efeitos base, efeitos avançados, tipagens e métodos de síntese.</p><span class="link">Abrir guia de itens →</span></a><article class="card" id="eventos"><div class="card-top"><span class="ico">◷</span><span class="status">Em preparação</span></div><h3>Eventos e calendário</h3><p>Calendário de eventos, clima e rotações com atualização progressiva.</p></article></section>
 <div class="section-head" id="playground"><div><h2>Playground</h2><p>Ferramentas interativas que poderemos desenvolver.</p></div></div>
 <section class="cards"><article class="card"><div class="card-top"><span class="ico">⚗</span><span class="status">Planejado</span></div><h3>Simuladores</h3><p>Espaço para testes de combinações e estratégias.</p></article><article class="card" id="recursos"><div class="card-top"><span class="ico">▤</span><span class="status">Planejado</span></div><h3>Biblioteca de recursos</h3><p>Documentos, tabelas e imagens organizados por assunto.</p></article><article class="card" id="servicos"><div class="card-top"><span class="ico">⚙</span><span class="status">Planejado</span></div><h3>Serviços e utilitários</h3><p>Calculadoras e ferramentas para facilitar consultas do dia a dia.</p></article></section>
 <section class="callout"><div><strong>Wiki em construção contínua</strong><p>Novas páginas e informações serão adicionadas sem mudar o endereço principal.</p></div><a href="times.html">Acessar conteúdo disponível →</a></section>
 </div></main>
 <footer>PokéGuide Wiki · Projeto independente de consulta para Pocket Contest. Conteúdo em desenvolvimento e sujeito a atualização.</footer>
+
+
+<script>
+(function(){
+ const content=document.querySelector('.maincontent');
+ if(!content)return;
+ const homeHTML=content.innerHTML;
+ let loaded=false;
+ async function showItems(){
+   if(!loaded){
+     const response=await fetch('itens-carregados.html');
+     if(!response.ok) throw new Error('Não foi possível carregar os Itens Carregados.');
+     const source=await response.text();
+     const doc=new DOMParser().parseFromString(source,'text/html');
+     const main=doc.querySelector('main');
+     if(!main) throw new Error('Conteúdo dos itens não encontrado.');
+     const wrap=document.createElement('div');
+     wrap.id='inline-items';
+     wrap.innerHTML=main.innerHTML;
+     const oldCrumb=wrap.querySelector('.crumb'); if(oldCrumb)oldCrumb.remove();
+     const oldHero=wrap.querySelector('.hero');
+     if(oldHero){oldHero.className='ic-hero';oldHero.querySelector('.eyebrow')?.classList.add('ic-eyebrow');}
+     wrap.querySelectorAll('.stats').forEach(e=>e.className='ic-stats');
+     wrap.querySelectorAll('.stat').forEach(e=>e.className='ic-stat');
+     wrap.querySelectorAll('.toolbar').forEach(e=>e.className='ic-toolbar');
+     const search=wrap.querySelector('#search'); if(search){search.className='ic-search';search.id='ic-search';}
+     wrap.querySelectorAll('.filters').forEach(e=>e.className='ic-filters');
+     wrap.querySelectorAll('.filter').forEach(e=>e.className='ic-filter');
+     wrap.querySelectorAll('.grid').forEach(e=>e.className='ic-grid');
+     wrap.querySelectorAll('.item').forEach(e=>e.className='ic-item');
+     wrap.querySelectorAll('.itemhead').forEach(e=>e.className='ic-itemhead');
+     wrap.querySelectorAll('.itemicon').forEach(e=>e.className='ic-icon');
+     wrap.querySelectorAll('.category').forEach(e=>e.className='ic-category');
+     wrap.querySelectorAll('.effect').forEach(e=>e.classList.add('ic-effect'));
+     wrap.querySelectorAll('.source').forEach(e=>e.className='ic-source');
+     wrap.querySelectorAll('.tag').forEach(e=>e.className='ic-tag');
+     wrap.querySelectorAll('.empty').forEach(e=>e.className='ic-empty');
+     wrap.querySelectorAll('.section').forEach(e=>e.className='ic-section');
+     wrap.querySelectorAll('.synthesis').forEach(e=>e.className='ic-synthesis');
+     wrap.querySelectorAll('.method').forEach(e=>e.className='ic-method');
+     wrap.querySelectorAll('.steps').forEach(e=>e.className='ic-steps');
+     wrap.querySelectorAll('.step').forEach(e=>e.className='ic-step');
+     wrap.querySelectorAll('.note').forEach(e=>e.className='ic-note');
+     const back=document.createElement('a');back.href='#evolucao';back.className='ic-back';back.textContent='← Voltar para Evolução';wrap.prepend(back);
+     const style=document.createElement('style');style.textContent="\n/* Itens Carregados em visualização integrada */\n#inline-items{color:var(--text,#edf4ff);padding:8px 0 44px}\n#inline-items .ic-crumb{font-size:12px;color:var(--muted);margin:0 0 18px}\n#inline-items .ic-back{display:inline-flex;margin:0 0 14px;color:var(--muted);font-size:12px;font-weight:800}\n#inline-items .ic-hero{border:1px solid #315575;border-radius:20px;padding:28px;background:linear-gradient(120deg,#152a41,#102034 65%,#173b56);margin-bottom:15px}\n#inline-items .ic-eyebrow{color:#79c6ff;font-size:11px;font-weight:900;letter-spacing:1.2px}\n#inline-items .ic-hero h1{font-size:clamp(30px,4vw,44px);margin:10px 0;line-height:1.1}\n#inline-items .ic-hero p{color:#bdcde0;max-width:700px;margin:0}\n#inline-items .ic-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:15px 0 22px}\n#inline-items .ic-stat{background:#131f31;border:1px solid #2a405b;border-radius:13px;padding:12px 14px}\n#inline-items .ic-stat b{display:block;font-size:20px}\n#inline-items .ic-stat span{font-size:11px;color:#a2b3c9}\n#inline-items .ic-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:20px 0 14px}\n#inline-items .ic-search{flex:1;min-width:210px;background:#131f31;border:1px solid #2a405b;border-radius:11px;padding:11px 13px;color:#edf4ff;font:inherit}\n#inline-items .ic-filters{display:flex;gap:7px;flex-wrap:wrap}\n#inline-items .ic-filter{border:1px solid #2a405b;background:#131f31;color:#a2b3c9;border-radius:24px;padding:8px 12px;font-size:12px;font-weight:800;cursor:pointer}\n#inline-items .ic-filter.active{background:#1b3c59;color:#b9e2ff;border-color:#4d83aa}\n#inline-items .ic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}\n#inline-items .ic-item{background:linear-gradient(155deg,#131f31,#101b2b);border:1px solid #2a405b;border-radius:15px;padding:15px;min-width:0}\n#inline-items .ic-itemhead{display:flex;align-items:center;gap:11px;margin-bottom:10px}\n#inline-items .ic-icon{width:52px;height:52px;flex:0 0 52px;border-radius:12px;background:#14263a;border:1px solid #34536e;display:grid;place-items:center;overflow:hidden}\n#inline-items .ic-icon img{width:100%;height:100%;object-fit:contain}\n#inline-items .ic-item h2{font-size:15px;margin:0}\n#inline-items .ic-category{font-size:11px;color:#79c6ff;font-weight:800;margin-top:3px}\n#inline-items .ic-effect{border-top:1px solid #2a405b;padding-top:9px;margin-top:9px}\n#inline-items .ic-effect strong{display:block;font-size:10px;letter-spacing:.7px;text-transform:uppercase;color:#7ee0b2;margin-bottom:3px}\n#inline-items .ic-effect p{margin:0;color:#d4dfed;font-size:12px}\n#inline-items .ic-effect.advanced strong{color:#ffd27a}\n#inline-items .ic-source{display:flex;justify-content:space-between;gap:8px;margin-top:11px;color:#a2b3c9;font-size:10px}\n#inline-items .ic-tag{background:#21354b;padding:3px 7px;border-radius:20px}\n#inline-items .ic-empty{display:none;padding:25px;text-align:center;color:#a2b3c9;border:1px dashed #2a405b;border-radius:12px}\n#inline-items .ic-section{margin-top:30px}\n#inline-items .ic-section h2{font-size:22px;margin:0 0 7px}\n#inline-items .ic-section>p{color:#a2b3c9;font-size:13px;margin:0 0 13px}\n#inline-items .ic-synthesis{display:grid;grid-template-columns:1fr 1fr;gap:12px}\n#inline-items .ic-method,#inline-items .ic-steps{background:#131f31;border:1px solid #2a405b;border-radius:14px;padding:16px}\n#inline-items .ic-method h3{font-size:15px;margin:0 0 6px}\n#inline-items .ic-method p{font-size:12px;color:#a2b3c9;margin:0}\n#inline-items .ic-steps{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:9px}\n#inline-items .ic-step{background:#192a40;border-radius:10px;padding:11px}\n#inline-items .ic-step b{display:block;color:#79c6ff;font-size:11px;margin-bottom:4px}\n#inline-items .ic-step span{font-size:11px;color:#c8d6e6}\n#inline-items .ic-note{margin-top:12px;border-left:3px solid #ffd27a;background:#302a1c66;padding:11px 13px;border-radius:0 9px 9px 0;color:#e8d9b7;font-size:11px}\n@media(max-width:700px){#inline-items .ic-stats{grid-template-columns:repeat(2,1fr)}#inline-items .ic-grid{grid-template-columns:1fr}#inline-items .ic-steps{grid-template-columns:1fr 1fr}#inline-items .ic-synthesis{grid-template-columns:1fr}}\n";document.head.appendChild(style);
+     content.innerHTML='';content.appendChild(wrap);
+     const input=wrap.querySelector('#ic-search'),buttons=[...wrap.querySelectorAll('.ic-filter')],cards=[...wrap.querySelectorAll('.ic-item')],empty=wrap.querySelector('.ic-empty'),total=wrap.querySelector('#total');
+     let category='todos';
+     function apply(){const q=(input?.value||'').trim().toLocaleLowerCase('pt-BR');let count=0;cards.forEach(card=>{const ok=(category==='todos'||card.dataset.cat===category)&&card.innerText.toLocaleLowerCase('pt-BR').includes(q);card.style.display=ok?'':'none';if(ok)count++;});if(empty)empty.style.display=count?'none':'block';if(total)total.textContent=count;}
+     input?.addEventListener('input',apply);
+     buttons.forEach(button=>button.addEventListener('click',()=>{buttons.forEach(b=>b.classList.toggle('active',b===button));category=button.dataset.filter;apply();}));
+     loaded=true;
+   }
+   document.querySelector('.maincontent').scrollIntoView({behavior:'smooth',block:'start'});
+ }
+ function restoreHome(){if(loaded){content.innerHTML=homeHTML;loaded=false;}}
+ document.addEventListener('click',e=>{
+   const link=e.target.closest('a[href="#itens-carregados"]');
+   if(link){e.preventDefault();history.pushState({items:true},'','#itens-carregados');showItems().catch(err=>{content.innerHTML='<p>'+err.message+'</p>';});}
+   if(e.target.closest('a[href="#evolucao"]')&&location.hash==='#evolucao'){restoreHome();}
+ });
+ window.addEventListener('popstate',()=>{if(location.hash==='#itens-carregados')showItems();else restoreHome();});
+ if(location.hash==='#itens-carregados')showItems();
+})();
+</script>
 
 </body>
 </html>
