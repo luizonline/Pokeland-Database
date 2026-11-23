@@ -152,7 +152,8 @@ body{color:var(--text)!important;background:var(--bg)!important}
  document.addEventListener('click',e=>{
    const link=e.target.closest('a[href="#itens-carregados"]');
    if(link){e.preventDefault();history.pushState({items:true},'','#itens-carregados');showItems().catch(err=>{content.innerHTML='<p>'+err.message+'</p>';});}
-   const otherHash=e.target.closest('a[href^="#"]');\n   if(otherHash&&!otherHash.matches('a[href="#itens-carregados"]')){restoreHome();}
+   const otherHash=e.target.closest('a[href^="#"]');
+   if(otherHash&&!otherHash.matches('a[href="#itens-carregados"]')){restoreHome();}
  });
  window.addEventListener('popstate',()=>{if(location.hash==='#itens-carregados')showItems();else restoreHome();});
  if(location.hash==='#itens-carregados')showItems();
