@@ -96,6 +96,35 @@ body.modal-lock{overflow:hidden}
 :root[data-theme="light"]{--text:#17263c;--ink:#17263c;--muted:#586b83;--card:#fff;--card2:#eef4fa;--surface:#fff;--bg:#f5f8fc;--line:#dfe7f0;--accent:#0878d1;--blue:#0878d1;--blue-soft:#e7f3ff;--gold:#bd790c;color-scheme:light}
 body{color:var(--text)!important;background:var(--bg)!important}
 .team h2,.source-card-content h2,.dps b{color:var(--text)!important}
+
+/* Legibilidade dos títulos e informações dos cards do ranking */
+:root:not([data-theme="dark"]) .source-card-content h2,
+:root[data-theme="light"] .source-card-content h2,
+:root:not([data-theme="dark"]) .source-card-content h2 a,
+:root[data-theme="light"] .source-card-content h2 a{
+ color:#17263c!important;
+ opacity:1!important;
+ text-shadow:none!important;
+}
+:root:not([data-theme="dark"]) .source-card-content .source-dps,
+:root[data-theme="light"] .source-card-content .source-dps{
+ color:#536780!important;
+ opacity:1!important;
+}
+:root:not([data-theme="dark"]) .source-card-content .source-dps b,
+:root[data-theme="light"] .source-card-content .source-dps b{
+ color:#174b78!important;
+ opacity:1!important;
+}
+:root:not([data-theme="dark"]) .source-card-content .cost-item,
+:root[data-theme="light"] .source-card-content .cost-item{
+ color:#536780!important;
+ opacity:1!important;
+}
+:root[data-theme="dark"] .source-card-content h2{color:#f0f5ff!important;opacity:1!important}
+:root[data-theme="dark"] .source-card-content .source-dps,
+:root[data-theme="dark"] .source-card-content .cost-item{color:#b8c7da!important;opacity:1!important}
+:root[data-theme="dark"] .source-card-content .source-dps b{color:#f0f5ff!important}
 </style></head>
 <body>
 <header class="sitebar">
