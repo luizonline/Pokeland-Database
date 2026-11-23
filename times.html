@@ -29,7 +29,7 @@ main{max-width:1240px;margin:0 auto;padding:26px 20px 60px}.toolbar{display:grid
 .brandmark{width:35px;height:35px;border-radius:12px;background:linear-gradient(145deg,#1688e8,#67c2f7);color:white;display:grid;place-items:center;font-size:20px}
 .mainnav{display:flex;align-items:center;justify-content:center;gap:3px;flex:1}.navgroup{position:relative}.navtrigger{border:0;background:transparent;color:var(--ink);padding:10px 11px;border-radius:22px;font:650 13px inherit;cursor:pointer;white-space:nowrap}.navtrigger span{color:var(--muted);margin-left:4px}.navtrigger:hover,.navtrigger.active,.navgroup.open .navtrigger{background:var(--blue-soft);color:var(--blue)}
 .dropdown{display:none;position:absolute;top:calc(100% + 9px);left:0;width:240px;padding:10px;background:var(--surface);border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow);z-index:60}.navgroup.open .dropdown,.navgroup:focus-within .dropdown{display:block}.drophead{font-size:10px;letter-spacing:.8px;font-weight:850;color:var(--blue);padding:9px 10px}.dropdown a{display:block;padding:9px 10px;border-radius:9px;text-decoration:none;color:var(--ink);font-size:13px}.dropdown a:hover{background:var(--soft);color:var(--blue)}
-.baractions{display:flex;align-items:center;gap:8px}.iconbtn,.githubbtn{height:36px;border:1px solid var(--line);border-radius:11px;background:var(--surface);color:var(--ink);padding:0 11px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}.iconbtn{width:38px;font-size:17px}.githubbtn{font-size:12px}
+.baractions{position:relative;z-index:120;display:flex;align-items:center;gap:8px}.iconbtn,.githubbtn{height:36px;border:1px solid var(--line);border-radius:11px;background:var(--surface);color:var(--ink);padding:0 11px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}.iconbtn{position:relative;z-index:121;pointer-events:auto;cursor:pointer;width:38px;font-size:17px}.githubbtn{font-size:12px}
 .sectionbar{position:relative;z-index:4;display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:10px max(20px,calc((100vw - 1240px)/2));background:var(--surface);border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}.sectionbar>a{color:var(--muted);text-decoration:none}.sectionbar strong{color:var(--ink)}.sectionlinks{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}.sectionlinks a{padding:6px 10px;border-radius:20px;background:var(--soft);color:var(--muted);text-decoration:none;font-weight:700}.sectionlinks a:hover{background:var(--blue-soft);color:var(--blue)}
 @media(max-width:900px){.sitebar{height:auto;min-height:65px;flex-wrap:wrap;gap:8px;padding:10px 16px}.mainnav{order:3;width:100%;justify-content:flex-start;overflow:visible;flex-wrap:wrap}.navtrigger{padding:8px 9px;font-size:12px}.sectionbar{padding:9px 16px}.sectionlinks{width:100%;margin-left:0}}
 @media(max-width:560px){.sitebar{gap:6px}.brand{font-size:15px}.baractions{margin-left:auto}.githubbtn{display:none}.mainnav{overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start;padding-bottom:3px}.navgroup{flex:0 0 auto}.dropdown{position:fixed;top:110px;left:12px;max-width:calc(100vw - 24px)}.sectionbar{gap:6px}.sectionlinks{flex-wrap:nowrap;overflow:auto}.sectionlinks a{white-space:nowrap}}
@@ -148,7 +148,7 @@ body{color:var(--text)!important;background:var(--bg)!important}
   <div class="navgroup"><button class="navtrigger" aria-expanded="false">Recursos <span>⌄</span></button><div class="dropdown"><div class="drophead">RECURSOS</div><a href="index.html#guias">Guias e tutoriais</a><a href="index.html#tabelas">Tabelas e materiais</a><a href="index.html#biblioteca">Biblioteca</a></div></div>
   <div class="navgroup"><button class="navtrigger" aria-expanded="false">Serviços <span>⌄</span></button><div class="dropdown"><div class="drophead">SERVIÇOS</div><a href="index.html#calculadoras">Calculadoras</a><a href="index.html#utilitarios">Utilitários</a></div></div>
  </nav>
- <div class="baractions"><button class="iconbtn" id="themeBtn" type="button" aria-label="Alternar tema" title="Alternar tema">☾</button><a class="githubbtn" href="https://github.com/luizonline/Pokeland-Database" target="_blank" rel="noopener">GitHub ↗</a></div>
+ <div class="baractions"><button class="iconbtn" id="themeBtn" type="button" aria-label="Alternar tema" title="Alternar tema" onclick="return window.togglePokeguideTheme(event)">☾</button><a class="githubbtn" href="https://github.com/luizonline/Pokeland-Database" target="_blank" rel="noopener">GitHub ↗</a></div>
 </header>
 <div class="sectionbar"><a href="index.html">Início</a><span>›</span><a href="times.html">Pokémon</a><span>›</span><strong>Conteúdo da Wiki</strong><div class="sectionlinks"><a href="index.html#pokedex">Pokédex</a><a href="index.html#capsula">Cápsula 2026</a><a href="times.html">Times</a><a href="index.html#tipos">Tipos e habilidades</a></div></div><main class="hybrid-main"><aside class="quickrail"><div class="rail-title">POKÉMON</div><a href="index.html">Visão geral</a><a href="index.html#pokedex">Pokédex</a><a href="index.html#capsula">Cápsula 2026</a><a href="times.html">Ranking de Times</a><a href="index.html#tipos">Tipos e habilidades</a><div class="rail-title">OUTRAS ÁREAS</div><a href="index.html#evolucao">Evolução</a><a href="index.html#eventos">Eventos</a></aside><div class="maincontent"><div class="pageintro"><div class="crumb">Início　›　Pokémon　›　Times</div><h1>Ranking de Times</h1><p>As composições do Pocket Contest ranqueadas por estrelas, com o DPS principal, os 3 membros e o custo de evolução pela Pokédex.</p></div>
 <div class="stats"><div class="stat"><b id="total">62</b> times</div><div class="stat">5★ <b>2</b></div><div class="stat">4★ <b>16</b></div><div class="stat">3★ <b>17</b></div><div class="stat">2★ <b>25</b></div><div class="stat">1★ <b>2</b></div></div>
@@ -243,24 +243,34 @@ try{render()}catch(err){console.error('Erro ao renderizar ranking:',err);documen
 </script><div class="team-modal" id="teamModal" aria-hidden="true"><section class="team-dialog" role="dialog" aria-modal="true" aria-labelledby="teamModalTitle"><button class="team-dialog-close" id="teamModalClose" aria-label="Fechar">×</button><div id="teamModalBody"></div></section></div>
 <script>
 (function(){
- const root=document.documentElement;
- const key='pokeguide-theme';
- function read(){try{return localStorage.getItem(key)}catch(e){return null}}
- function save(v){try{localStorage.setItem(key,v)}catch(e){}}
- function apply(v){
-   const theme=v==='dark'?'dark':'light';
-   root.setAttribute('data-theme',theme);
-   const btn=document.getElementById('themeBtn');
-   if(btn){btn.textContent=theme==='dark'?'☀':'☾';btn.setAttribute('aria-label',theme==='dark'?'Ativar tema claro':'Ativar tema escuro');btn.setAttribute('aria-pressed',theme==='dark'?'true':'false');}
-   document.documentElement.style.colorScheme=theme;
- }
- apply(read()||'light');
- document.addEventListener('click',function(e){
-   const btn=e.target.closest('#themeBtn');
-   if(!btn)return;
-   e.preventDefault();
-   const next=root.getAttribute('data-theme')==='dark'?'light':'dark';
-   save(next);apply(next);
- });
+  var key='pokeguide-theme';
+  function current(){return document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light';}
+  function apply(theme){
+    theme=theme==='dark'?'dark':'light';
+    document.documentElement.setAttribute('data-theme',theme);
+    document.documentElement.style.colorScheme=theme;
+    try{localStorage.setItem(key,theme);}catch(e){}
+    var button=document.getElementById('themeBtn');
+    if(button){
+      button.textContent=theme==='dark'?'☀':'☾';
+      button.setAttribute('aria-label',theme==='dark'?'Ativar tema claro':'Ativar tema escuro');
+      button.setAttribute('aria-pressed',theme==='dark'?'true':'false');
+      button.title=theme==='dark'?'Ativar tema claro':'Ativar tema escuro';
+    }
+  }
+  window.togglePokeguideTheme=function(event){
+    if(event){event.preventDefault();event.stopPropagation();}
+    apply(current()==='dark'?'light':'dark');
+    return false;
+  };
+  var initial='light';
+  try{initial=localStorage.getItem(key)||'light';}catch(e){}
+  apply(initial);
+  document.addEventListener('DOMContentLoaded',function(){
+    var button=document.getElementById('themeBtn');
+    if(button)button.addEventListener('click',window.togglePokeguideTheme);
+  });
+  var button=document.getElementById('themeBtn');
+  if(button)button.addEventListener('click',window.togglePokeguideTheme);
 })();
 </script></body></html>
