@@ -51,13 +51,39 @@ body{color:var(--text)!important;background:var(--bg)!important}
 :root[data-theme="dark"] .githubbtn,:root[data-theme="dark"] .iconbtn,:root[data-theme="dark"] .secondary{background:#17263b!important;color:#edf4ff!important;border-color:#30445f!important}
 :root[data-theme="light"] body{background:#f5f8fc!important;color:#17263c!important}
 .sitebar{z-index:9999!important}.baractions{z-index:10000!important;pointer-events:auto!important}#themeBtn{position:relative!important;z-index:10001!important;pointer-events:auto!important;touch-action:manipulation!important;cursor:pointer!important}:root[data-theme="dark"] body{background:#0b1422!important;color:#edf4ff!important}:root[data-theme="dark"] .sitebar,:root[data-theme="dark"] .sectionbar,:root[data-theme="dark"] .quickrail,:root[data-theme="dark"] .stat,:root[data-theme="dark"] .card,:root[data-theme="dark"] .team,:root[data-theme="dark"] .team-dialog,:root[data-theme="dark"] .source-card-content{background:#131f31!important;color:#edf4ff!important;border-color:#30445f!important}:root[data-theme="dark"] .source-card-content h2,:root[data-theme="dark"] .team h2,:root[data-theme="dark"] h1,:root[data-theme="dark"] h2{color:#f2f6ff!important}:root[data-theme="dark"] .source-dps,:root[data-theme="dark"] .source-dps b,:root[data-theme="dark"] .cost-item,:root[data-theme="dark"] p{color:#b8c7da!important}:root[data-theme="dark"] input,:root[data-theme="dark"] select{background:#17263b!important;color:#edf4ff!important;border-color:#30445f!important}</style>
+
+<style>
+.accessories-section{margin-top:36px;padding-top:10px;scroll-margin-top:90px}
+.accessory-stats{display:grid;grid-template-columns:repeat(4,minmax(0,120px));gap:12px;margin:20px 0 28px}
+.accessory-stats>div{background:#f0f2f5;border:1px solid #e5e7eb;border-radius:15px;padding:13px 16px}
+.accessory-stats span{display:block;font-size:10px;font-weight:850;letter-spacing:.7px;color:#64748b}
+.accessory-stats b{display:block;font-size:21px;color:#111827}
+.accessory-toolbar{margin:20px 0 16px}
+.accessory-toolbar input{width:100%;border:0;outline:0;border-radius:30px;background:#f1f2f4;padding:14px 18px;font:inherit;color:#172338}
+.accessory-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.accessory-card{position:relative;border:1px solid #e7eaf0;border-radius:18px;background:#fff;overflow:hidden;min-width:0;transition:transform .18s,border-color .18s}
+.accessory-card:hover{transform:translateY(-2px);border-color:#b7cde5}
+.accessory-pieces{height:112px;display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 12px;border-bottom:1px solid #edf0f4;background:linear-gradient(180deg,#fff,#fbfcfe)}
+.accessory-pieces img{width:56px;height:56px;object-fit:contain;image-rendering:auto}
+.accessory-info{padding:13px 16px 15px}
+.accessory-info h3{margin:0;font-size:15px;color:#111827}
+.accessory-info p{margin:2px 0 0;color:#737b87;font-size:12px}
+.rank{position:absolute;top:10px;left:10px;border-radius:18px;padding:3px 9px;color:white;font-size:11px;font-weight:900;box-shadow:0 2px 5px #0002}
+.rank-s{background:#f59e0b}.rank-a{background:#0876d8}.rank-b{background:#80624f}
+.accessory-empty{display:none;text-align:center;padding:28px;color:#64748b}
+.accessory-count,.accessory-source{font-size:12px;color:#737b87;margin-top:18px}
+.accessory-source a{color:#0876d8;text-decoration:underline}
+@media(max-width:850px){.accessory-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.accessory-grid{grid-template-columns:1fr}.accessory-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+
 </head>
 <body><script>try{var savedTheme=localStorage.getItem('pokeguide-theme');if(savedTheme){document.documentElement.setAttribute('data-theme',savedTheme);document.documentElement.style.colorScheme=savedTheme;}}catch(e){}</script>
 <header class="sitebar">
  <a class="brand" href="index.html"><span class="brandmark">✦</span><span>PokéGuide <em>Wiki</em></span></a>
  <nav class="mainnav" aria-label="Navegação principal">
   <div class="navgroup"><button class="navtrigger active" aria-expanded="false">Pokémon <span>⌄</span></button><div class="dropdown"><div class="drophead">POKÉMON</div><a href="index.html#pokemon">Visão geral</a><a href="index.html#pokedex">Pokédex</a><a href="times.html">Times</a></div></div>
-  <div class="navgroup"><button class="navtrigger" aria-expanded="false">Evolução <span>⌄</span></button><div class="dropdown"><div class="drophead">EVOLUÇÃO</div><a href="index.html#custos">Custos e requisitos</a><a href="index.html#melhorias">Melhorias e upgrades</a><a href="index.html#itens">Itens de evolução</a><a href="#itens-carregados">Itens Carregados</a></div></div>
+  <div class="navgroup"><button class="navtrigger" aria-expanded="false">Evolução <span>⌄</span></button><div class="dropdown"><div class="drophead">EVOLUÇÃO</div><a href="index.html#custos">Custos e requisitos</a><a href="index.html#melhorias">Melhorias e upgrades</a><a href="index.html#itens">Itens de evolução</a><a href="#itens-carregados">Itens Carregados</a><a href="#acessorios-negros">Acessórios Negros</a></div></div>
   <div class="navgroup"><button class="navtrigger" aria-expanded="false">Playground <span>⌄</span></button><div class="dropdown"><div class="drophead">PLAYGROUND</div><a href="index.html#simuladores">Simuladores</a><a href="index.html#laboratorio">Laboratório</a></div></div>
   <div class="navgroup"><button class="navtrigger" aria-expanded="false">Recursos <span>⌄</span></button><div class="dropdown"><div class="drophead">RECURSOS</div><a href="index.html#guias">Guias e tutoriais</a><a href="index.html#tabelas">Tabelas e materiais</a><a href="index.html#biblioteca">Biblioteca</a></div></div>
   <div class="navgroup"><button class="navtrigger" aria-expanded="false">Serviços <span>⌄</span></button><div class="dropdown"><div class="drophead">SERVIÇOS</div><a href="index.html#calculadoras">Calculadoras</a><a href="index.html#utilitarios">Utilitários</a></div></div>
@@ -65,7 +91,7 @@ body{color:var(--text)!important;background:var(--bg)!important}
  <div class="baractions"><button class="iconbtn" id="themeBtn" type="button" aria-label="Alternar tema" title="Alternar tema" onclick="var r=document.documentElement;var n=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',n);r.style.colorScheme=n;this.textContent=n==='dark'?'☀':'☾';this.setAttribute('aria-pressed',n==='dark'?'true':'false');try{localStorage.setItem('pokeguide-theme',n)}catch(e){}">☾</button><a class="githubbtn" href="https://github.com/luizonline/Pokeland-Database" target="_blank" rel="noopener">GitHub ↗</a></div>
 </header>
 <div class="sectionbar"><a href="index.html">Início</a><span>›</span><a href="times.html">Pokémon</a><span>›</span><strong>Conteúdo da Wiki</strong><div class="sectionlinks"><a href="index.html#pokedex">Pokédex</a><a href="times.html">Times</a></div></div>
-<main class="hybrid-main"><aside class="quickrail"><div class="rail-title">ACESSO RÁPIDO</div><a href="#pokemon">✦ Pokémon</a><a href="times.html">⚔ Times</a><a href="#evolucao">↗ Evolução</a><a href="#playground">⚗ Playground</a><a href="#recursos">▤ Recursos</a></aside><div class="maincontent">
+<main class="hybrid-main"><aside class="quickrail"><div class="rail-title">ACESSO RÁPIDO</div><a href="#pokemon">✦ Pokémon</a><a href="times.html">⚔ Times</a><a href="#evolucao">↗ Evolução</a><a href="#acessorios-negros">✧ Acessórios</a><a href="#playground">⚗ Playground</a><a href="#recursos">▤ Recursos</a></aside><div class="maincontent">
 <div class="crumb">Início　›　Wiki Pocket Contest</div>
 <section class="hero">
 <span class="eyebrow">✦ GUIA INDEPENDENTE · POCKET CONTEST</span>
@@ -87,6 +113,27 @@ body{color:var(--text)!important;background:var(--bg)!important}
 </section>
 <div class="section-head" id="evolucao"><div><h2>Evolução</h2><p>Área reservada para guias e tabelas de progressão.</p></div></div>
 <section class="feature"><article class="card"><div class="card-top"><span class="ico">◆</span><span class="status">Em preparação</span></div><h3>Custos e requisitos</h3><p>Vamos reunir materiais de evolução, fragmentos, itens necessários e custos por etapa, sempre indicando a fonte dos dados.</p></article><a class="card" href="#itens-carregados"><div class="card-top"><span class="ico">✦</span><span class="status live">Disponível</span></div><h3>Itens Carregados</h3><p>Consulte efeitos base, efeitos avançados, tipagens e métodos de síntese.</p><span class="link">Abrir guia de itens →</span></a></section>
+
+<section class="accessories-section" id="acessorios-negros">
+  <div class="section-head"><div><span class="eyebrow">EVOLUÇÃO · EQUIPAMENTOS</span><h2>Acessórios Negros</h2><p>Sets de acessórios do chefe, com classificação competitiva e as três peças de cada conjunto.</p></div></div>
+  <div class="accessory-stats">
+    <div><span>SETS</span><b>8</b></div><div><span>RANK S</span><b>2</b></div><div><span>RANK A</span><b>5</b></div><div><span>RANK B</span><b>1</b></div>
+  </div>
+  <div class="accessory-toolbar"><input id="accessorySearch" type="search" placeholder="⌕  Pesquisar set ou efeito..." aria-label="Pesquisar sets de acessórios"></div>
+  <div class="accessory-grid" id="accessoryGrid">
+    <article class="accessory-card" data-rank="S" data-name="Set do Trovão"><span class="rank rank-s">◇ S</span><div class="accessory-pieces"><img src="https://wiki.origemfadas.com.br/acessorios/trovao/1.png" alt="Set do Trovão — peça 1" loading="lazy"><img src="https://wiki.origemfadas.com.br/acessorios/trovao/2.png" alt="Set do Trovão — peça 2" loading="lazy"><img src="https://wiki.origemfadas.com.br/acessorios/trovao/3.png" alt="Set do Trovão — peça 3" loading="lazy"></div><div class="accessory-info"><h3>Set do Trovão</h3><p>4 efeitos · 3 peças</p></div></article>
+    <article class="accessory-card" data-rank="S" data-name="Set de Ho-oh"><span class="rank rank-s">◇ S</span><div class="accessory-pieces"><img src="https://wiki.origemfadas.com.br/acessorios/hooh/1.png" alt="Set de Ho-oh — peça 1" loading="lazy"><img src="https://wiki.origemfadas.com.br/acessorios/hooh/2.png" alt="Set de Ho-oh — peça 2" loading="lazy"><img src="https://wiki.origemfadas.com.br/acessorios/hooh/3.png" alt="Set de Ho-oh — peça 3" loading="lazy"></div><div class="accessory-info"><h3>Set de Ho-oh</h3><p>4 efeitos · 3 peças</p></div></article>
+    <article class="accessory-card" data-rank="A" data-name="Set Eternidade"><span class="rank rank-a">◇ A</span><div class="accessory-pieces"><img src="https://wiki.origemfadas.com.br/acessorios/eternidade/1.png" alt="Set Eternidade — peça 1" loading="lazy"><img src="https://wiki.origemfadas.com.br/acessorios/eternidade/2.png" alt="Set Eternidade — peça 2" loading="lazy"><img src="https://wiki.origemfadas.com.br/acessorios/eternidade/3.png" alt="Set Eternidade — peça 3" loading="lazy"></div><div class="accessory-info"><h3>Set Eternidade</h3><p>4 efeitos · 3 peças</p></div></article>
+    <article class="accessory-card" data-rank="A" data-name="Set Pilar"><span class="rank rank-a">◇ A</span><div class="accessory-pieces"><img src="https://wiki.origemfadas.com.br/acessorios/pilar/1.png" alt="Set Pilar — peça 1" loading="lazy"><img src="https://wiki.origemfadas.com.br/acessorios/pilar/2.png" alt="Set Pilar — peça 2" loading="lazy"><img src="https://wiki.origemfadas.com.br/acessorios/pilar/3.png" alt="Set Pilar — peça 3" loading="lazy"></div><div class="accessory-info"><h3>Set Pilar</h3><p>4 efeitos · 3 peças</p></div></article>
+    <article class="accessory-card" data-rank="A" data-name="Set Chefe"><span class="rank rank-a">◇ A</span><div class="accessory-pieces"><img src="https://wiki.origemfadas.com.br/acessorios/chefe/1.png" alt="Set Chefe — peça 1" loading="lazy"><img src="https://wiki.origemfadas.com.br/acessorios/chefe/2.png" alt="Set Chefe — peça 2" loading="lazy"><img src="https://wiki.origemfadas.com.br/acessorios/chefe/3.png" alt="Set Chefe — peça 3" loading="lazy"></div><div class="accessory-info"><h3>Set Chefe</h3><p>4 efeitos · 3 peças</p></div></article>
+    <article class="accessory-card" data-rank="A" data-name="Set Finalidade"><span class="rank rank-a">◇ A</span><div class="accessory-pieces"><img src="https://wiki.origemfadas.com.br/acessorios/finalidade/1.png" alt="Set Finalidade — peça 1" loading="lazy"><img src="https://wiki.origemfadas.com.br/acessorios/finalidade/2.png" alt="Set Finalidade — peça 2" loading="lazy"><img src="https://wiki.origemfadas.com.br/acessorios/finalidade/3.png" alt="Set Finalidade — peça 3" loading="lazy"></div><div class="accessory-info"><h3>Set Finalidade</h3><p>4 efeitos · 3 peças</p></div></article>
+    <article class="accessory-card" data-rank="A" data-name="Set Origem"><span class="rank rank-a">◇ A</span><div class="accessory-pieces"><img src="https://wiki.origemfadas.com.br/acessorios/origem/1.png" alt="Set Origem — peça 1" loading="lazy"><img src="https://wiki.origemfadas.com.br/acessorios/origem/2.png" alt="Set Origem — peça 2" loading="lazy"><img src="https://wiki.origemfadas.com.br/acessorios/origem/3.png" alt="Set Origem — peça 3" loading="lazy"></div><div class="accessory-info"><h3>Set Origem</h3><p>4 efeitos · 3 peças</p></div></article>
+    <article class="accessory-card" data-rank="B" data-name="Set Marte"><span class="rank rank-b">◇ B</span><div class="accessory-pieces"><img src="https://wiki.origemfadas.com.br/acessorios/marte/1.png" alt="Set Marte — peça 1" loading="lazy"><img src="https://wiki.origemfadas.com.br/acessorios/marte/2.png" alt="Set Marte — peça 2" loading="lazy"><img src="https://wiki.origemfadas.com.br/acessorios/marte/3.png" alt="Set Marte — peça 3" loading="lazy"></div><div class="accessory-info"><h3>Set Marte</h3><p>4 efeitos · 3 peças</p></div></article>
+  </div>
+  <div class="accessory-empty" id="accessoryEmpty">Nenhum set encontrado.</div>
+  <p class="accessory-count" id="accessoryCount">Mostrando 8 de 8 sets.</p>
+  <p class="accessory-source">Fonte das imagens e da classificação: <a href="https://wiki.origemfadas.com.br/evolucao/acessorios" target="_blank" rel="noopener">Origem Fadas Wiki</a>. A página de referência informa 4 efeitos por set, mas não disponibiliza as descrições dos efeitos na listagem.</p>
+</section>
 <div class="section-head" id="playground"><div><h2>Playground</h2><p>Ferramentas interativas que poderemos desenvolver.</p></div></div>
 <section class="cards"><article class="card"><div class="card-top"><span class="ico">⚗</span><span class="status">Planejado</span></div><h3>Simuladores</h3><p>Espaço para testes de combinações e estratégias.</p></article><article class="card" id="recursos"><div class="card-top"><span class="ico">▤</span><span class="status">Planejado</span></div><h3>Biblioteca de recursos</h3><p>Documentos, tabelas e imagens organizados por assunto.</p></article><article class="card" id="servicos"><div class="card-top"><span class="ico">⚙</span><span class="status">Planejado</span></div><h3>Serviços e utilitários</h3><p>Calculadoras e ferramentas para facilitar consultas do dia a dia.</p></article></section>
 <section class="callout"><div><strong>Wiki em construção contínua</strong><p>Novas páginas e informações serão adicionadas sem mudar o endereço principal.</p></div><a href="times.html">Acessar conteúdo disponível →</a></section>
@@ -156,6 +203,29 @@ body{color:var(--text)!important;background:var(--bg)!important}
  });
  window.addEventListener('popstate',()=>{if(location.hash==='#itens-carregados')showItems();else restoreHome();});
  if(location.hash==='#itens-carregados')showItems();
+})();
+</script>
+
+
+<script>
+(function(){
+ const input=document.getElementById('accessorySearch');
+ if(!input)return;
+ const cards=[...document.querySelectorAll('.accessory-card')];
+ const count=document.getElementById('accessoryCount');
+ const empty=document.getElementById('accessoryEmpty');
+ function filter(){
+   const q=input.value.trim().toLocaleLowerCase('pt-BR');
+   let shown=0;
+   cards.forEach(card=>{
+     const match=(card.dataset.name+' '+card.dataset.rank).toLocaleLowerCase('pt-BR').includes(q);
+     card.style.display=match?'':'none';
+     if(match)shown++;
+   });
+   count.textContent='Mostrando '+shown+' de 8 sets.';
+   empty.style.display=shown?'none':'block';
+ }
+ input.addEventListener('input',filter);
 })();
 </script>
 
